@@ -1,0 +1,24 @@
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+
+metadata:
+  name: retail-platform
+
+spec:
+
+  amiFamily: AL2023
+
+  role: retail-platform-dev-karpenter-node-role
+
+  subnetSelectorTerms:
+    - tags:
+        kubernetes.io/cluster/retail-platform-dev: shared
+        kubernetes.io/role/internal-elb: "1"
+
+  securityGroupSelectorTerms:
+    - id: sg-023d2dd27973a327e
+
+  tags:
+    Project: retail-platform
+    Environment: dev
+    ManagedBy: Karpenter

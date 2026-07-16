@@ -3,3 +3,5 @@ kind: Kustomization
 
 resources: 
   - karpenter/application.yaml
+  - karpenter/ec2nodeclass.yaml
+  - karpenter/nodepool.yaml
