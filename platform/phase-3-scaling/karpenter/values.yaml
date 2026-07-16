@@ -1,0 +1,11 @@
+serviceAccount:
+  create: true
+  name: karpenter
+
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::219834006508:role/retail-platform-dev-karpenter-controller-role
+
+settings:
+  clusterName: retail-platform-dev
+
+replicas: 1
