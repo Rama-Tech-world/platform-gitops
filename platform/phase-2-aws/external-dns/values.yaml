@@ -1,0 +1,21 @@
+serviceAccount:
+  create: true
+  name: external-dns
+
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::219834006508:role/retail-platform-dev-external-dns-role
+
+provider:
+  name: aws
+
+policy: upsert-only
+
+registry: txt
+
+txtOwnerId: retail-platform-dev
+
+sources:
+  - service
+  - ingress
+
+domainFilters: []
