@@ -5,3 +5,4 @@ resources:
   - external-secrets/application.yaml
   - external-secrets/secretstore.yaml
   - external-secrets/test-secret.yaml
+  - aws-load-balancer-controller/application.yaml
