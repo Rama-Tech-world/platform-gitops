@@ -15,8 +15,18 @@ spec:
 
     helm:
       releaseName: karpenter
-      valueFiles:
-        - values.yaml
+      values: |
+        settings:
+          clusterName: retail-platform-dev
+          interruptionQueue: retail-platform-dev
+
+        serviceAccount:
+          create: true
+          name: karpenter
+          annotations:
+            eks.amazonaws.com/role-arn: arn:aws:iam::219834006508:role/retail-platform-dev-karpenter-controller-role
+
+        replicas: 1
 
   destination:
     server: https://kubernetes.default.svc

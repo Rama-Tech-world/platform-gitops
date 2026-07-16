@@ -7,5 +7,6 @@ serviceAccount:
 
 settings:
   clusterName: retail-platform-dev
+  interruptionQueue: retail-platform-dev
 
 replicas: 1
