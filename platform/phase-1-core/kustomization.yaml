@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - metrics-server/application.yaml
+  - cert-manager/application.yaml
