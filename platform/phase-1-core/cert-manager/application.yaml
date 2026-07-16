@@ -14,8 +14,9 @@ spec:
     targetRevision: v1.18.2
 
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        crds:
+          enabled: true
 
   destination:
     server: https://kubernetes.default.svc
