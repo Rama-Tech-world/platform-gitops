@@ -5,8 +5,10 @@ metadata:
   name: retail-platform
 
 spec:
-
   amiFamily: AL2023
+
+  amiSelectorTerms:
+    - alias: al2023@latest
 
   role: retail-platform-dev-karpenter-node-role
 
