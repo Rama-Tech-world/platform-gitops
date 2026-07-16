@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/Rama-Tech-world/platform-gitops.git
     targetRevision: main
-    path: platform/phase-1-core
+    path: platform
 
   destination:
     server: https://kubernetes.default.svc

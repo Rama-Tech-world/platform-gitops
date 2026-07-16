@@ -1,0 +1,6 @@
+serviceAccount:
+  create: true
+  name: external-secrets
+
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::219834006508:role/retail-platform-dev-external-secrets-role

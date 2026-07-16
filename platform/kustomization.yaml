@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - phase-1-core
+  - phase-2-aws
+  - phase-3-scaling
+  - phase-4-observability
+  - phase-5-security
+  - phase-6-networking
+  - phase-7-service-mesh
