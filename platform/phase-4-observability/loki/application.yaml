@@ -9,9 +9,9 @@ spec:
   project: platform
 
   source:
-    repoURL: https://grafana-community.github.io/helm-charts
+    repoURL: https://grafana.github.io/helm-charts
     chart: loki
-    targetRevision: 7.1.0   # updated to latest chart version
+    targetRevision: 7.1.0   # latest chart version
     helm:
       values: |
         deploymentMode: SingleBinary
