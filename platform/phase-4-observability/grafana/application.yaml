@@ -11,10 +11,40 @@ spec:
   source:
     repoURL: https://grafana-community.github.io/helm-charts
     chart: grafana
-    targetRevision: 12.7.1   # latest chart version
+    targetRevision: 12.7.1
+
     helm:
-      valueFiles:
-        - values.yaml   # keep your values separate
+      values: |
+        adminUser: admin
+        adminPassword: admin123
+
+        service:
+          type: ClusterIP
+
+        persistence:
+          enabled: true
+          storageClassName: gp3
+          size: 10Gi
+
+        datasources:
+          datasources.yaml:
+            apiVersion: 1
+            datasources:
+              - name: Prometheus
+                type: prometheus
+                access: proxy
+                url: http://prometheus-server.monitoring.svc.cluster.local
+                isDefault: true
+
+              - name: Loki
+                type: loki
+                access: proxy
+                url: http://loki.monitoring.svc.cluster.local:3100
+                isDefault: false
+
+        grafana.ini:
+          server:
+            root_url: "%(protocol)s://%(domain)s/"
 
   destination:
     server: https://kubernetes.default.svc
@@ -24,5 +54,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
     syncOptions:
       - CreateNamespace=true
