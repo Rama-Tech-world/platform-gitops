@@ -7,3 +7,4 @@ resources:
   - external-secrets/test-secret.yaml
   - aws-load-balancer-controller/application.yaml
   - external-dns/application.yaml
+  - ebs-csi-driver/application.yaml
