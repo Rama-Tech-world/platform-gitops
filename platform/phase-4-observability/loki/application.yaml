@@ -34,6 +34,15 @@ spec:
         write:
           replicas: 0
 
+        chunksCache:
+          enabled: false
+
+        resultsCache:
+          enabled: false
+
+        gateway:
+          enabled: false
+
         loki:
           auth_enabled: false
 
@@ -55,9 +64,6 @@ spec:
 
           limits_config:
             retention_period: 168h
-
-        gateway:
-          enabled: false
 
   destination:
     server: https://kubernetes.default.svc
