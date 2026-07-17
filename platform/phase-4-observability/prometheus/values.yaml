@@ -2,6 +2,7 @@ server:
   persistentVolume:
     enabled: true
     size: 20Gi
+    storageClass: gp3
 
 alertmanager:
   enabled: false
