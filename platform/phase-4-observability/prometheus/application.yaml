@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus
-    targetRevision: 29.14.0   # updated to latest chart version
+    targetRevision: 29.14.0
     helm:
       values: |
         server:
@@ -33,3 +33,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
