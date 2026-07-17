@@ -4,3 +4,4 @@ kind: Kustomization
 resources: 
   - prometheus/application.yaml
   - grafana/application.yaml
+  - loki/application.yaml
