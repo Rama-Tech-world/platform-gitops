@@ -11,10 +11,15 @@ spec:
   source:
     repoURL: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
     chart: aws-ebs-csi-driver
-    targetRevision: 2.62.0   # updated to latest chart version
+    targetRevision: 2.62.0   # latest chart version
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        controller:
+          serviceAccount:
+            create: true
+            name: ebs-csi-controller-sa
+            annotations:
+              eks.amazonaws.com/role-arn: arn:aws:iam::219834006508:role/retail-platform-dev-ebs-csi-role
 
   destination:
     server: https://kubernetes.default.svc
