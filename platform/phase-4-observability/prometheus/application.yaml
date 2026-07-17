@@ -12,6 +12,7 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus
     targetRevision: 29.14.0
+
     helm:
       values: |
         server:
@@ -19,6 +20,42 @@ spec:
             enabled: true
             size: 20Gi
             storageClass: gp3
+
+          extraScrapeConfigs: |
+            - job_name: 'loki'
+              static_configs:
+                - targets:
+                    - loki.monitoring.svc.cluster.local:3100
+
+            - job_name: 'karpenter'
+              static_configs:
+                - targets:
+                    - karpenter.karpenter.svc.cluster.local:8080
+
+            - job_name: 'external-dns'
+              static_configs:
+                - targets:
+                    - external-dns.external-dns.svc.cluster.local:7979
+
+            - job_name: 'cert-manager'
+              static_configs:
+                - targets:
+                    - cert-manager.cert-manager.svc.cluster.local:9402
+
+            - job_name: 'argocd'
+              static_configs:
+                - targets:
+                    - argocd-metrics.argocd.svc.cluster.local:8082
+
+            - job_name: 'argocd-server'
+              static_configs:
+                - targets:
+                    - argocd-server-metrics.argocd.svc.cluster.local:8083
+
+            - job_name: 'aws-load-balancer-controller'
+              static_configs:
+                - targets:
+                    - aws-load-balancer-controller.kube-system.svc.cluster.local:8080
 
         alertmanager:
           enabled: false
