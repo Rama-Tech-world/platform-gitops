@@ -41,5 +41,5 @@ spec:
     cpu: "8"
 
   disruption:
-    consolidationPolicy: WhenEmptyOrUnderutilized
+    consolidationPolicy: WhenEmpty
     consolidateAfter: 30s
