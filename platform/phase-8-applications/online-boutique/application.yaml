@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: online-boutique
   namespace: argocd
-
+  
 spec:
   project: platform
 
@@ -12,11 +12,17 @@ spec:
     repoURL: https://github.com/GoogleCloudPlatform/microservices-demo.git
     targetRevision: main
     path: helm-chart
-
     helm:
       valueFiles:
         - values.yaml
-        
+      values: |
+        frontend:
+          service:
+            type: LoadBalancer
+            loadBalancerClass: service.k8s.aws/nlb
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+              service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-009ab5c5381598c10,subnet-08ea9f2273c9a88c9
 
   destination:
     server: https://kubernetes.default.svc
@@ -26,6 +32,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
     syncOptions:
       - CreateNamespace=true
