@@ -4,4 +4,3 @@ kind: Kustomization
 resources: 
   - trivy/application.yaml
   - kyverno/application.yaml
-  - kyvernocrds/application.yaml
