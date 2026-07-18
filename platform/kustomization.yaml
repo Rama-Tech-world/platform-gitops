@@ -9,3 +9,4 @@ resources:
   - phase-5-security
   - phase-6-networking
   - phase-7-service-mesh
+  - phase-8-applications

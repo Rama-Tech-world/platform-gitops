@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: online-boutique
+  namespace: argocd
+
+spec:
+  project: platform
+
+  source:
+    repoURL: https://github.com/GoogleCloudPlatform/microservices-demo.git
+    targetRevision: master
+    path: helm-chart
+
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: online-boutique
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
