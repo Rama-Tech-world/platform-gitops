@@ -1,0 +1,27 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+
+metadata:
+  name: require-labels
+
+spec:
+  validationFailureAction: Audit
+  background: true
+
+  rules:
+    - name: require-app-and-environment-labels
+
+      match:
+        any:
+          - resources:
+              kinds:
+                - Deployment
+
+      validate:
+        message: "app and environment labels are required"
+
+        pattern:
+          metadata:
+            labels:
+              app: "?*"
+              environment: "?*"
