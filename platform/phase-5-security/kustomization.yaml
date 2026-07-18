@@ -4,6 +4,3 @@ kind: Kustomization
 resources: 
   - trivy/application.yaml
   - kyverno/application.yaml
-  - kyverno-policies/require-labels.yaml
-  - kyverno-policies/require-resources.yaml
-  - kyverno-policies/disallow-latest-tag.yaml
