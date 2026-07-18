@@ -3,4 +3,3 @@ kind: Kustomization
 
 resources:
   - online-boutique/application.yaml
-  - online-boutique/namespace.yaml
