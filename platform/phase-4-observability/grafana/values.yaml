@@ -11,16 +11,6 @@ persistence:
   storageClassName: gp3
   size: 10Gi
 
-datasources:
-  datasources.yaml:
-    apiVersion: 1
-    datasources:
-      - name: Prometheus
-        type: prometheus
-        access: proxy
-        url: http://prometheus-server.monitoring.svc.cluster.local
-        isDefault: true
-
 grafana.ini:
   server:
     root_url: "%(protocol)s://%(domain)s/"
