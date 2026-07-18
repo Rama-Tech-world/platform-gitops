@@ -10,7 +10,7 @@ spec:
 
   source:
     repoURL: https://github.com/GoogleCloudPlatform/microservices-demo.git
-    targetRevision: master
+    targetRevision: main
     path: helm-chart
 
     helm:

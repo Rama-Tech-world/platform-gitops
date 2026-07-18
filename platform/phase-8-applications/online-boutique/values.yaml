@@ -1,10 +1,10 @@
 frontend:
   replicaCount: 2
 
-checkoutservice:
+cartservice:
   replicaCount: 2
 
-cartservice:
+checkoutservice:
   replicaCount: 2
 
 loadgenerator:
