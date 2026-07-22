@@ -38,7 +38,7 @@ spec:
             - c7i-flex.large
 
   limits:
-    cpu: "8"
+    cpu: "0"
 
   disruption:
     consolidationPolicy: WhenEmpty
